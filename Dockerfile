@@ -11,8 +11,7 @@ RUN apt-get -y update
 RUN apt-get install -y nodejs
 
 # Install various node.js globals needed.
-RUN npm config set strict-ssl false
-RUN npm install -g coffee-script brunch bower
+RUN npm install -g coffee-script
 
 # Install Ruby
 RUN apt-get install -y ruby2.0-dev ruby2.0 ruby-dev
