@@ -14,12 +14,12 @@ RUN apt-get install -y nodejs
 RUN npm install -g coffee-script
 
 # Install Ruby
-RUN apt-get install -y ruby2.0-dev ruby2.0 ruby-dev
-RUN update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby2.0 10
+RUN apt-get install -y ruby2.0-dev ruby2.0 ruby-dev && \
+    update-alternatives --install /usr/bin/gem gem /usr/bin/gem2.0 10 && \
+    update-alternatives --install /usr/bin/ruby ruby /usr/bin/ruby2.0 10
 
 # Install necessary Ruby dependencies
-RUN gem install --no-rdoc --no-ri pry --pre
-RUN gem install --no-rdoc --no-ri bundler
+RUN gem install --no-rdoc --no-ri pry bundler
 
 # Cleanup
 RUN apt-get clean
