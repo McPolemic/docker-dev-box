@@ -10,14 +10,6 @@ RUN apt-get install -y python-software-properties software-properties-common git
 # Install python pre-reqs
 RUN pip install virtualenv ipython honcho
 
-# Install node.js
-RUN add-apt-repository ppa:chris-lea/node.js
-RUN apt-get -y update
-RUN apt-get install -y nodejs
-
-# Install various node.js globals needed.
-RUN npm install -g coffee-script
-
 # Install Ruby
 RUN apt-get install -y ruby2.0-dev ruby2.0 ruby-dev && \
     update-alternatives --install /usr/bin/gem gem /usr/bin/gem2.0 10 && \
